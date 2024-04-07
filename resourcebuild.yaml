@@ -1,22 +1,13 @@
 steps:
-
-  # Change directory to where your Terraform files are located
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['config', 'set', 'project', 'august-water-417802']  # Replace with your GCP project ID
-
-  # Initialize Terraform (optional if you already have initialized Terraform)
-  - name: 'hashicorp/terraform:latest'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - 'terraform init'
-
-  # Apply Terraform changes
-  - name: 'hashicorp/terraform:latest'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - 'terraform apply -auto-approve'
+  - id: 'terraform init'
+    name: 'hashicorp/terraform:1.0.0'
+    script: terraform init
+  - id: 'terraform plan'
+    name: 'hashicorp/terraform:1.0.0'
+    script: terraform plan
+  - id: 'terraform apply'
+    name: 'hashicorp/terraform:1.0.0'
+    script: terraform apply --auto-approve
 
 options:
   logging: CLOUD_LOGGING_ONLY
