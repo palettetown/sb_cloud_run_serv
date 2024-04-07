@@ -3,7 +3,7 @@
 #ENTRYPOINT ["java","-jar","/app.jar"]
 
 # Use a base image with Maven installed
-FROM maven:3.8.5-openjdk-17-slim AS build
+FROM maven:3.8.5-openjdk-11-slim AS build
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -21,7 +21,7 @@ COPY src ./src
 RUN mvn package -DskipTests
 
 # Use a lighter base image for runtime
-FROM openjdk:17-jre-slim
+FROM openjdk:11-jre-slim
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
