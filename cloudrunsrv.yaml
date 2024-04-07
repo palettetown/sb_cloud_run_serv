@@ -1,0 +1,9 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: cloudrun-srv
+spec:
+  template:
+    spec:
+      containers:
+      - image: "us-central1-docker.pkg.dev/august-water-417802/my-docker-repo/springbootrestapi-image:latest"
