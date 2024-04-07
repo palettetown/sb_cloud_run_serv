@@ -3,7 +3,7 @@
 #ENTRYPOINT ["java","-jar","/app.jar"]
 
 # Use a base image with Maven installed
-FROM maven:3.9.6-openjdk-17-slim AS build
+FROM maven:3.8.5-openjdk-17-slim AS build
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
