@@ -22,6 +22,7 @@ RUN mvn package -DskipTests
 
 # Use a lighter base image for runtime
 #FROM openjdk:17-jre-slim
+FROM openjdk:17-jdk-slim
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
